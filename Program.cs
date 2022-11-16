@@ -17,10 +17,10 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 app.UseHttpsRedirection();
+app.UseCors(MyAllowSpecificOrigins);
 app.UseStaticFiles();
 app.UseRouting();
 
-app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 

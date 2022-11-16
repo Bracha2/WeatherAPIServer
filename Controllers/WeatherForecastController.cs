@@ -28,9 +28,13 @@ namespace WeatherAPI.Controllers
             request.AddParameter("q", city);
             var response = client.Execute(request);
             var content = response.Result;
-            var getWeather = JsonConvert.DeserializeObject<GetWeather>(content.Content);
-            object res = new { Key =getWeather.Key, LocalizedName = getWeather.LocalizedName  };
-            return res;
+            return content;
+            //var getWeather = JsonConvert.DeserializeObject<GetWeather>(content.Content);
+            //    if (getWeather != null) { 
+            //object res = new { Key =getWeather.Key, LocalizedName = getWeather.LocalizedName  };
+            //return res;
+            //}
+            //return city;
         }
 
         [HttpGet]
